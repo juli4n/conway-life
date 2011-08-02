@@ -1,0 +1,2 @@
+# Module com.globant.life.life
+# RPC service class, partial path of RPC policy file

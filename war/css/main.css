@@ -1,0 +1,15 @@
+div {
+    background-color: #978E43;
+    border-radius: 15px 15px 15px 15px;
+    margin-right: 5px;
+    margin-top: 5px;
+    padding: 10px;
+    text-align: center;
+    float: left;
+    outline: 0;
+}
+
+.grid {
+    background-color: #F2C545;
+    
+}
