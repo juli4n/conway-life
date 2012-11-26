@@ -44,8 +44,8 @@ public class LifeGameMain implements EntryPoint {
 				int x = event.getRelativeX(c.getCanvasElement()) / LifeGameMain.this.space;
 				int y =  event.getRelativeY(c.getCanvasElement()) / LifeGameMain.this.space;
 				fillNode(x,y);
-				NodeChange nc = LifeGameMain.this.game.toogleNode(new SimpleNode(x, y));
-				toogleState(nc);
+				NodeChange nc = LifeGameMain.this.game.toggleNode(new SimpleNode(x, y));
+				toggleState(nc);
 			}
 		});
 		
@@ -78,11 +78,11 @@ public class LifeGameMain implements EntryPoint {
 	
 	private void doNext() {
 		for (NodeChange n : LifeGameMain.this.game.next()) {
-			toogleState(n);
+			toggleState(n);
 		}
 	}
 
-	private void toogleState(NodeChange n) {
+	private void toggleState(NodeChange n) {
 		if (n.getNewState()) {
 			fillNode(n.getNode().getX(), n.getNode().getY());						
 		} else {

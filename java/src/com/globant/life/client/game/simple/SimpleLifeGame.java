@@ -25,9 +25,7 @@ public class SimpleLifeGame implements LifeGame {
 
 	@Override
 	public Iterable<NodeChange> next() {
-
 		final ArrayList<NodeChange> changes = new ArrayList<NodeChange>();
-
 		for (int i = 0; i < this.x; i++) {
 			for (int j = 0; j < this.y; j++) {
 				boolean newState = calculateNextState(i, j);
@@ -36,54 +34,35 @@ public class SimpleLifeGame implements LifeGame {
 				}
 			}
 		}
-
 		for (NodeChange n : changes) {
 			this.state[n.getNode().getX()][n.getNode().getY()] = !this.state[n.getNode().getX()][n.getNode().getY()];
 		}
-
 		return changes;
 	}
 
 	private boolean calculateNextState(int i, int j) {
 		int n = countLiveNeighbours(i, j);
-		boolean isAlive = this.state[i][j];
-		if (isAlive) {
-			if (n < 2) {
-				return false;
-			} else if (n == 2 || n == 3) {
-				return true;
-			} else {
-				assert n > 3;
-				return false;
-			}
+		if (this.state[i][j]) {
+		  return (n == 2 || n == 3);
 		} else {
-			if (n == 3) {
-				return true;
-			} else {
-				return false;
-			}
+			return (n == 3);
 		}
 	}
 
 	private int countLiveNeighbours(int i, int j) {
-
 		int liveNeighbours = 0;
 		liveNeighbours += nodeState(i - 1, j - 1);
 		liveNeighbours += nodeState(i, j - 1);
 		liveNeighbours += nodeState(i + 1, j - 1);
-
 		liveNeighbours += nodeState(i - 1, j);
 		liveNeighbours += nodeState(i + 1, j);
-
 		liveNeighbours += nodeState(i - 1, j + 1);
 		liveNeighbours += nodeState(i, j + 1);
 		liveNeighbours += nodeState(i + 1, j + 1);
-
 		return liveNeighbours;
 	}
 
 	private int nodeState(int i, int j) {
-
 		try {
 			return this.state[i][j] == true ? 1 : 0;
 		} catch (Exception e) {
@@ -92,7 +71,7 @@ public class SimpleLifeGame implements LifeGame {
 	}
 
 	@Override
-	public NodeChange toogleNode(Node n) {
+	public NodeChange toggleNode(Node n) {
 		this.state[n.getX()][n.getY()] = !this.state[n.getX()][n.getY()];
 		NodeChange result = new SimpleNodeChange(n, this.state[n.getX()][n.getY()]);
 		return result;
