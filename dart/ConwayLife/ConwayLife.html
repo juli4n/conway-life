@@ -1,0 +1,26 @@
+<!doctype html>
+
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+
+<body id="mainBody">
+  <header>
+    <p id="fps"></p>
+  </header>    
+  <div id="main" class="mainBoard">   
+    <div id="buttonsDiv" class="buttons">
+      <input type="button" id="startButton">Start/Stop</input>    
+      <input type="button" id="randomize">Randomize!</input>    
+    </div>
+    <div id="gridDiv" class="grid" >
+      <canvas id="canvas" width="1000px" height="1000px" />
+    </div>
+  </div>
+    <script type="application/dart" src="web/ConwayLife.dart"></script>
+    <script src="dart.js"></script>
+</body>
+
+</html>
